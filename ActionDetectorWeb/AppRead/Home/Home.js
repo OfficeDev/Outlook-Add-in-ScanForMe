@@ -29,7 +29,7 @@
             // Make an assumption that the displayName is in the form "firstName lastName"
             var myFirstName = nameParts[0];
 
-            // I was cc'd
+            // Check whether I was cc'd on this email
             for (var i = 0; i < item.cc.length; i++) {
                 if (item.cc[i].emailAddress == myInfo.emailAddress) {
                     $("#cc-result").text("yes");
@@ -37,7 +37,7 @@
                 }
             }
 
-            // Sent to me
+            // Check whether I am on the To line
             for (var i = 0; i < item.to.length; i++) {
                 if (item.to[i].emailAddress == myInfo.emailAddress) {
                     $("#to-result").text("yes");
@@ -45,6 +45,7 @@
                 }
             }
 
+            // Check whether I am mentioned in the body of the email by name
             Office.context.mailbox.item.body.getAsync(function (asyncResult) {
                 var bodyText = asyncResult.value;
               
