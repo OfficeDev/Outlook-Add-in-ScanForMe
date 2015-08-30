@@ -18,20 +18,16 @@
     };
 
     function detectActionsForMe() {
-        var myInfo = Office.context.mailbox.userProfile;
-
         var item = Office.cast.item.toItemRead(Office.context.mailbox.item);
-        if (item.itemType === Office.MailboxEnums.ItemType.Message) {
+        
 
-            // Sent to me
-            for (var i = 0; i < item.to.length; i++)
-            {
-                if (item.to[i].emailAddress == myInfo.emailAddress)
-                {
-                    $("#to-result").text("yes");
-                    break;
-                }
-            }
+        if (item.itemType === Office.MailboxEnums.ItemType.Message) {
+           
+            var myInfo = Office.context.mailbox.userProfile;
+            var nameParts = myInfo.displayName.split(" ");
+
+            // Make an assumption that the displayName is in the form "firstName lastName"
+            var myFirstName = nameParts[0];
 
             // I was cc'd
             for (var i = 0; i < item.cc.length; i++) {
@@ -41,33 +37,38 @@
                 }
             }
 
+            // Sent to me
+            for (var i = 0; i < item.to.length; i++) {
+                if (item.to[i].emailAddress == myInfo.emailAddress) {
+                    $("#to-result").text("yes");
+                    break;
+                }
+            }
+
             Office.context.mailbox.item.body.getAsync(function (asyncResult) {
                 var bodyText = asyncResult.value;
-                var nameParts = myInfo.displayName.split(" ");
-                
-                // Make an assumtion that the displayName is in the form "firstName lastName"
-                var myFirstName = nameParts[0];
+              
 
                 // Create regular expression to find all matches of the first name
                 // i => ignore case
                 // g => global match, i.e., doesn't stop after first match
-                var re = new RegExp(myFirstName, 'gi'); 
-                var results = new Array();
-                while (re.exec(bodyText)) {
-                    results.push(re.lastIndex);
+                var regex = new RegExp(myFirstName, 'gi'); 
+                var matchingArray = new Array();
+                while (regex.exec(bodyText)) {
+                    matchingArray.push(regex.lastIndex);
                 }
 
+                var result = "Scan complete.";
                 
-                if (results.length > 0)
+                if (matchingArray.length > 0)
                 {
                     $("#body-result").text("yes");
+                    result += " It looks like you were mentioned by name in this email";
                 }
+
+                $("#result").text(result);
                 
             });
-            // Indirectly sent to me
-            // My name is in the body (first name)
-            // How urgent is the email?
-            // Anything highlighted?
            
         }
     }
