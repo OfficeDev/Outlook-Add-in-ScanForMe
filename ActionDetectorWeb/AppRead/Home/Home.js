@@ -46,6 +46,10 @@
             }
 
             // Check whether I am mentioned in the body of the email by name
+            // In this sample we scan the email body as plain text. You can also 
+            // set the coercionType on the getAsync() method to retrieve the body as HTML.
+            // For an example of retrieving the body as HTML and parsing the result, 
+            // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
             Office.context.mailbox.item.body.getAsync(function (asyncResult) {
                 var bodyText = asyncResult.value;
               
