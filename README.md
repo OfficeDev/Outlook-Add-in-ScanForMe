@@ -45,6 +45,13 @@ This solution was created in [Visual Studio](https://msdn.microsoft.com/library/
 <a name="codedescription"></a>
 ##Description of the code
 
+The core logic of this sample is in the [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/ActionDetectorWeb/AppRead/Home/Home.js)  file in the ActionDetectorWeb project. 
+
+Once the add-in is initialized, the `item.to` and `item.cc` properties are scanned for the presence of the user's email address. The user email address is retrieved from the [```Office.context.mailbox.userProfile```](https://msdn.microsoft.com/library/office/fp160976.aspx) property. If the user was found on the to or cc lines of this email, that fact is registered on the UI of the add-in. 
+
+The [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.aspx) method of the Body object is then used to retrieve the body of the email in Text format. When this asynchronous operation is completed, our inline callback function is invoked. This function uses a regular expression to scan the text of the email body for occurences of the user's first name. If one or more occurences are found, the UI of the add-in notes that the user was mentioned in the body of the email. 
+
+
 <a name="build"></a>
 ##Build and debug
 1. Open the [```ActionDetector.sln```](ActionDetector.sln) file in Visual Studio.
