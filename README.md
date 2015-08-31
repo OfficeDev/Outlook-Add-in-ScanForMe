@@ -31,7 +31,7 @@ This sample requires the following:
 <a name="components"></a>
 ##Key components
 
-This solution was created in [Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS). It consists of two projects - LinkRevealer and LinkRevealerWeb. Here's a list of the key files within those projects. 
+This solution was created in [Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS). It consists of two projects - ActionDetector and ActionDetectorWeb. Here's a list of the key files within those projects. 
 #### ActionDetector project
 
 * [```ActionDetector.xml```](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/ActionDetector/ActionDetectorManifest/ActionDetector.xml) The [manifest file](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp) for the Word add-in.
