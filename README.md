@@ -16,7 +16,7 @@
 
 In this sample we show you how to use the [JavaScript API for Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) to create an Outlook add-in that parses the body of an email looking for hyperlinks. The following is a  picture of the scenario in question.
 
- - screenshot needed
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##Prerequisites
