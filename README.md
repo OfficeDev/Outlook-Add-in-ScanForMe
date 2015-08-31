@@ -1,4 +1,4 @@
-# Outlook add-in: A mail add-in for a read scenario which helps the user determine whether any action needs to be taken.
+# Outlook add-in: A mail add-in for a read scenario which checks whether the user is mentioned on the To line, cc line or body of an email.
 
 **Table of contents**
 
