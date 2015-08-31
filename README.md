@@ -1,4 +1,4 @@
-# Outlook add-in: Scanning the body of an email as text. 
+# Outlook add-in: A mail add-in for a read scenario which helps the user determine whether any action needs to be taken.
 
 **Table of contents**
 
