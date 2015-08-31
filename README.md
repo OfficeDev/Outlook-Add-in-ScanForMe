@@ -51,6 +51,8 @@ Once the add-in is initialized, the `item.to` and `item.cc` properties are scann
 
 The [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.aspx) method of the Body object is then used to retrieve the body of the email in Text format. When this asynchronous operation is completed, our inline callback function is invoked. This function uses a regular expression to scan the text of the email body for occurences of the user's first name. If one or more occurences are found, the UI of the add-in notes that the user was mentioned in the body of the email. 
 
+>Note: For an example of using getAsync to retrive the body of an email in HTML format, see the [Outlook-Add-in-LinkRevealer](https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer) sample. 
+
 
 <a name="build"></a>
 ##Build and debug
