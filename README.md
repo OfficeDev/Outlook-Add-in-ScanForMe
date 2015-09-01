@@ -16,7 +16,7 @@
 
 In this sample we show you how to use the [JavaScript API for Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) to create an Outlook add-in that parses the body of an email looking for hyperlinks. The following is a  picture of the scenario in question.
 
- ![](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##Prerequisites
@@ -31,21 +31,21 @@ This sample requires the following:
 <a name="components"></a>
 ##Key components
 
-This solution was created in [Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS). It consists of two projects - ActionDetector and ActionDetectorWeb. Here's a list of the key files within those projects. 
-#### ActionDetector project
+This solution was created in [Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS). It consists of two projects - ScanForMe and ScanForMeWeb. Here's a list of the key files within those projects. 
+#### ScanForMe project
 
-* [```ActionDetector.xml```](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/ActionDetector/ActionDetectorManifest/ActionDetector.xml) The [manifest file](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp) for the Word add-in.
+* [```ScanForMe.xml```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMe/ScanForMeManifest/ScanForMe.xml) The [manifest file](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp) for the Word add-in.
 
-#### ActionDetectorWeb project
+#### ScanForMeWeb project
 
-* [```Home.html```](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/ActionDetectorWeb/AppRead/Home/Home.html) The HTML user interface for the Word add-in.
-* [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/ActionDetectorWeb/AppRead/Home/Home.js) The JavaScript code used by Home.html to interact with Word using the JavaScript for Office API. 
+* [```Home.html```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.html) The HTML user interface for the Word add-in.
+* [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.js) The JavaScript code used by Home.html to interact with Word using the JavaScript for Office API. 
 
 
 <a name="codedescription"></a>
 ##Description of the code
 
-The core logic of this sample is in the [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/blob/master/ActionDetectorWeb/AppRead/Home/Home.js)  file in the ActionDetectorWeb project. 
+The core logic of this sample is in the [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.js)  file in the ScanForMeWeb project. 
 
 Once the add-in is initialized, the `item.to` and `item.cc` properties are scanned for the presence of the user's email address. The user email address is retrieved from the [```Office.context.mailbox.userProfile```](https://msdn.microsoft.com/library/office/fp160976.aspx) property. If the user was found on the to or cc lines of this email, that fact is registered on the UI of the add-in. 
 
@@ -56,7 +56,7 @@ The [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.aspx) 
 
 <a name="build"></a>
 ##Build and debug
-1. Open the [```ActionDetector.sln```](ActionDetector.sln) file in Visual Studio.
+1. Open the [```ScanForMe.sln```](ScanForMe.sln) file in Visual Studio.
 2. Press F5 to build and deploy the sample add-in 
 3. When Outlook launches, select an email from your inbox
 4. Launch the add-in by selecting it from the add-in app bar
@@ -70,12 +70,12 @@ The [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.aspx) 
 <a name="troubleshooting"></a>
 ## Troubleshooting
 
-- If the add-in does not appear in the task pane, Choose **Insert > My Add-ins >  Action Detector**.
+- If the add-in does not appear in the task pane, Choose **Insert > My Add-ins >  Scan For Me**.
 
 <a name="questions"></a>
 ## Questions and comments
 
-- If you have any trouble running this sample, please [log an issue](https://github.com/OfficeDev/Outlook-Add-in-ActionDetector/issues).
+- If you have any trouble running this sample, please [log an issue](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/issues).
 - Questions about Office Add-ins development in general should be posted to [Stack Overflow](http://stackoverflow.com/questions/tagged/office-addins). Make sure that your questions or comments are tagged with [office-addins].
 
 
