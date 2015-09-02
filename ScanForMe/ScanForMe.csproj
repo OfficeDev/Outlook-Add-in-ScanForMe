@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ScanForMeWeb\ScanForMeWeb.csproj">
-      <Project>{AC523851-A15C-489B-B032-B6F7D5713F5F}</Project>
+      <Project>{eeabaeae-07e6-452e-bb78-a5a5a73ea97e}</Project>
       <Name>ScanForMeWeb</Name>
       <Private>True</Private>
       <RoleType>Web</RoleType>
