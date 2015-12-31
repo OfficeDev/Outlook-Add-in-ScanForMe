@@ -48,13 +48,13 @@
             //
             // For more information, please see Understanding API Requirement Sets at
             // https://dev.outlook.com/reference/add-ins/tutorial-api-requirement-sets.html
-            if (Office.context.mailbox.item.body.getAsync() !== undefined) {
+            if (Office.context.mailbox.item.body.getAsync !== undefined) {
                 // Check whether I am mentioned in the body of the email by name
                 // In this sample we scan the email body as plain text. You can also
                 // set the coercionType on the getAsync() method to retrieve the body as HTML.
                 // For an example of retrieving the body as HTML and parsing the result,
                 // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
-                Office.context.mailbox.item.body.getAsync(function (asyncResult) {
+                Office.context.mailbox.item.body.getAsync("text",function (asyncResult) {
                     var bodyText = asyncResult.value;
 
                     // Create regular expression to find all matches of the first name
