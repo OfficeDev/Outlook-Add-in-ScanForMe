@@ -3,10 +3,10 @@
 * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 */
 
-/// <reference path="../App.js" />
+/// <reference path='../App.js' />
 
 (function () {
-    "use strict";
+    'use strict';
 
     // The Office initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
@@ -24,23 +24,23 @@
         if (item.itemType === Office.MailboxEnums.ItemType.Message) {
            
             var myInfo = Office.context.mailbox.userProfile;
-            var nameParts = myInfo.displayName.split(" ");
+            var nameParts = myInfo.displayName.split(' ');
 
-            // Make an assumption that the displayName is in the form "firstName lastName"
+            // Make an assumption that the displayName is in the form 'firstName lastName'
             var myFirstName = nameParts[0];
 
             // Check whether I was cc'd on this email
             for (var i = 0; i < item.cc.length; i++) {
-                if (item.cc[i].emailAddress == myInfo.emailAddress) {
-                    $("#cc-result").text("yes");
+                if (item.cc[i].emailAddress === myInfo.emailAddress) {
+                    $('#cc-result').text('yes');
                     break;
                 }
             }
 
             // Check whether I am on the To line
             for (var i = 0; i < item.to.length; i++) {
-                if (item.to[i].emailAddress == myInfo.emailAddress) {
-                    $("#to-result").text("yes");
+                if (item.to[i].emailAddress === myInfo.emailAddress) {
+                    $('#to-result').text('yes');
                     break;
                 }
             }
@@ -50,7 +50,7 @@
             // set the coercionType on the getAsync() method to retrieve the body as HTML.
             // For an example of retrieving the body as HTML and parsing the result, 
             // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
-            Office.context.mailbox.item.body.getAsync(function (asyncResult) {
+            Office.context.mailbox.item.body.getAsync('text',function (asyncResult) {
                 var bodyText = asyncResult.value;
               
 
@@ -63,15 +63,15 @@
                     matchingArray.push(regex.lastIndex);
                 }
 
-                var result = "Scan complete.";
+                var result = 'Scan complete.';
                 
                 if (matchingArray.length > 0)
                 {
-                    $("#body-result").text("yes");
-                    result += " It looks like you were mentioned by name in this email";
+                    $('#body-result').text('yes');
+                    result += ' It looks like you were mentioned by name in this email';
                 }
 
-                $("#result").text(result);
+                $('#result').text(result);
                 
             });
            
@@ -90,7 +90,7 @@
 // MIT License:
 // Permission is hereby granted, free of charge, to any person obtaining
 // a copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
+// 'Software'), to deal in the Software without restriction, including
 // without limitation the rights to use, copy, modify, merge, publish,
 // distribute, sublicense, and/or sell copies of the Software, and to
 // permit persons to whom the Software is furnished to do so, subject to
@@ -99,7 +99,7 @@
 // The above copyright notice and this permission notice shall be
 // included in all copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
 // EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
 // NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
