@@ -1,5 +1,4 @@
-﻿
-/*
+﻿/*
 * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 */
 
@@ -19,10 +18,8 @@
 
     function detectActionsForMe() {
         var item = Office.cast.item.toItemRead(Office.context.mailbox.item);
-        
 
         if (item.itemType === Office.MailboxEnums.ItemType.Message) {
-           
             var myInfo = Office.context.mailbox.userProfile;
             var nameParts = myInfo.displayName.split(" ");
 
@@ -45,39 +42,45 @@
                 }
             }
 
-            // Check whether I am mentioned in the body of the email by name
-            // In this sample we scan the email body as plain text. You can also 
-            // set the coercionType on the getAsync() method to retrieve the body as HTML.
-            // For an example of retrieving the body as HTML and parsing the result, 
-            // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
-            Office.context.mailbox.item.body.getAsync(function (asyncResult) {
-                var bodyText = asyncResult.value;
-              
+            // We need to determine if body.getAsync() is defined. We require this method in order to
+            // retrieve the body test for parsing. This method was added in v1.3 of the API
+            // and may not be available on every Outlook client.
+            //
+            // For more information, please see Understanding API Requirement Sets at
+            // https://dev.outlook.com/reference/add-ins/tutorial-api-requirement-sets.html
+            if (Office.context.mailbox.item.body.getAsync() !== undefined) {
+                // Check whether I am mentioned in the body of the email by name
+                // In this sample we scan the email body as plain text. You can also
+                // set the coercionType on the getAsync() method to retrieve the body as HTML.
+                // For an example of retrieving the body as HTML and parsing the result,
+                // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
+                Office.context.mailbox.item.body.getAsync(function (asyncResult) {
+                    var bodyText = asyncResult.value;
 
-                // Create regular expression to find all matches of the first name
-                // i => ignore case
-                // g => global match, i.e., doesn't stop after first match
-                var regex = new RegExp(myFirstName, 'gi'); 
-                var matchingArray = new Array();
-                while (regex.exec(bodyText)) {
-                    matchingArray.push(regex.lastIndex);
-                }
+                    // Create regular expression to find all matches of the first name
+                    // i => ignore case
+                    // g => global match, i.e., doesn't stop after first match
+                    var regex = new RegExp(myFirstName, 'gi');
+                    var matchingArray = new Array();
+                    while (regex.exec(bodyText)) {
+                        matchingArray.push(regex.lastIndex);
+                    }
 
-                var result = "Scan complete.";
-                
-                if (matchingArray.length > 0)
-                {
-                    $("#body-result").text("yes");
-                    result += " It looks like you were mentioned by name in this email";
-                }
+                    var result = "Scan complete.";
 
-                $("#result").text(result);
-                
-            });
-           
+                    if (matchingArray.length > 0) {
+                        $("#body-result").text("yes");
+                        result += " It looks like you were mentioned by name in this email";
+                    }
+
+                    $("#result").text(result);
+                });
+            }
+            else { // Method not available
+                alert('Warning: The body.getAsync() method is not available in this version of Outlook. Body parsing was skipped');
+            }
         }
     }
-
 })();
 
 // *********************************************************
