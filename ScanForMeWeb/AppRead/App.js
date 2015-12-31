@@ -9,10 +9,10 @@ var app = (function () {
     app.initialize = function () {
         $('body').append(
             '<div id="notification-message">' +
-                '<div class="padding">' +
+                '<div class="padding ms-bgColor-themeDarkAlt">' +
                     '<div id="notification-message-close"></div>' +
-                    '<div id="notification-message-header"></div>' +
-                    '<div id="notification-message-body"></div>' +
+                    '<div id="notification-message-header" class="ms-font-m ms-fontColor-white"></div>' +
+                    '<div id="notification-message-body" class="ms-font-m ms-fontColor-white"></div>' +
                 '</div>' +
             '</div>');
 

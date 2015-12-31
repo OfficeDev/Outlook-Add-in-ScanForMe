@@ -12,68 +12,71 @@
     Office.initialize = function (reason) {
         $(document).ready(function () {
             app.initialize();
-
             detectActionsForMe();
         });
     };
 
     function detectActionsForMe() {
         var item = Office.cast.item.toItemRead(Office.context.mailbox.item);
-        
-
         if (item.itemType === Office.MailboxEnums.ItemType.Message) {
-           
+
             var myInfo = Office.context.mailbox.userProfile;
-            var nameParts = myInfo.displayName.split(' ');
 
-            // Make an assumption that the displayName is in the form 'firstName lastName'
-            var myFirstName = nameParts[0];
-
-            // Check whether I was cc'd on this email
-            for (var i = 0; i < item.cc.length; i++) {
-                if (item.cc[i].emailAddress === myInfo.emailAddress) {
-                    $('#cc-result').text('yes');
-                    break;
-                }
+            // If the message is from me, no point in checking any further
+            if (item.from.emailAddress === myInfo.emailAddress) {
+                app.showNotification('Mail Not Scanned', 'It\'s from you, so we didn\'t think there was any point.');
             }
+            else {
+                var nameParts = myInfo.displayName.split(' ');
 
-            // Check whether I am on the To line
-            for (var i = 0; i < item.to.length; i++) {
-                if (item.to[i].emailAddress === myInfo.emailAddress) {
-                    $('#to-result').text('yes');
-                    break;
+                // Make an assumption that the displayName is in the form 'firstName lastName'
+                var myFirstName = nameParts[0];
+
+                // Check whether I was cc'd on this email
+                for (var i = 0; i < item.cc.length; i++) {
+                    if (item.cc[i].emailAddress === myInfo.emailAddress) {
+                        $('#cc-result').text('yes');
+                        break;
+                    }
                 }
+
+                // Check whether I am on the To line
+                for (var i = 0; i < item.to.length; i++) {
+                    if (item.to[i].emailAddress === myInfo.emailAddress) {
+                        $('#to-result').text('yes');
+                        break;
+                    }
+                }
+
+                // Check whether I am mentioned in the body of the email by name
+                // In this sample we scan the email body as plain text. You can also 
+                // set the coercionType on the getAsync() method to retrieve the body as HTML.
+                // For an example of retrieving the body as HTML and parsing the result, 
+                // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
+                Office.context.mailbox.item.body.getAsync('text', function (asyncResult) {
+                    var bodyText = asyncResult.value;
+
+
+                    // Create regular expression to find all matches of the first name
+                    // i => ignore case
+                    // g => global match, i.e., doesn't stop after first match
+                    var regex = new RegExp(myFirstName, 'gi');
+                    var matchingArray = new Array();
+                    while (regex.exec(bodyText)) {
+                        matchingArray.push(regex.lastIndex);
+                    }
+
+                    var result = 'Scan complete.';
+
+                    if (matchingArray.length > 0) {
+                        app.showNotification('Scan Complete', 'It looks like you are mentioned by name in this email');
+                    }
+                    else {
+                        app.showNotification('Scan Complete', 'It doesn\'t look like you are mentioned by name in this email');
+                    }
+
+                });
             }
-
-            // Check whether I am mentioned in the body of the email by name
-            // In this sample we scan the email body as plain text. You can also 
-            // set the coercionType on the getAsync() method to retrieve the body as HTML.
-            // For an example of retrieving the body as HTML and parsing the result, 
-            // see https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer/blob/master/LinkRevealerWeb/AppRead/Home/Home.js
-            Office.context.mailbox.item.body.getAsync('text',function (asyncResult) {
-                var bodyText = asyncResult.value;
-              
-
-                // Create regular expression to find all matches of the first name
-                // i => ignore case
-                // g => global match, i.e., doesn't stop after first match
-                var regex = new RegExp(myFirstName, 'gi'); 
-                var matchingArray = new Array();
-                while (regex.exec(bodyText)) {
-                    matchingArray.push(regex.lastIndex);
-                }
-
-                var result = 'Scan complete.';
-                
-                if (matchingArray.length > 0)
-                {
-                    $('#body-result').text('yes');
-                    result += ' It looks like you were mentioned by name in this email';
-                }
-
-                $('#result').text(result);
-                
-            });
            
         }
     }
