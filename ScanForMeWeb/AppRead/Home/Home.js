@@ -78,7 +78,7 @@
                             app.showNotification('Scan Complete', 'It looks like you are mentioned by name in the body of this email');
                         }
                         else {
-                            app.showNotification('Scan Complete', 'It doesn\'t look like you are mentioned by name in the body this email');
+                            app.showNotification('Scan Complete', 'It looks like you are not mentioned by name in the body of this email');
                         }
 
                     });
