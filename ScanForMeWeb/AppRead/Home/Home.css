@@ -4,32 +4,8 @@
 
 /* Page-specific styling */
 
-#details {
-    margin-left: 15px;
-}
-
-    #details th {
-        text-align: left;
-        padding-right: 10px;
-    }
-
-#from {
-    cursor: pointer;
-    color: #336699;
-}
-
-    #from:focus, #from:hover, #from:active {
-        color: #4ea2df;
-    }
-
-.normal-link {
-    white-space: nowrap;
-}
-
-.phishy-link {
-    width:auto;
-    white-space: nowrap;
-    color: white;
+.padding {
+    padding: 15px;
 }
 
 /*

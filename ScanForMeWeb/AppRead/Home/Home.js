@@ -1,17 +1,21 @@
-﻿/*
+﻿
+/*
 * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 */
 
-/// <reference path='../App.js' />
+/// <reference path="../../Scripts/FabricUI/MessageBanner.js" />
 
 (function () {
     'use strict';
 
+    var messageBanner;
+
     // The Office initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
         $(document).ready(function () {
-            app.initialize();
-
+            var element = document.querySelector('.ms-MessageBanner');
+            messageBanner = new fabric.MessageBanner(element);
+            //messageBanner.hideBanner();
             detectActionsForMe();
         });
     };
@@ -75,19 +79,28 @@
                         var result = 'Scan Complete.';
 
                         if (matchingArray.length > 0) {
-                            app.showNotification('Scan Complete', 'It looks like you are mentioned by name in the body of this email');
+                            showNotification('Scan Complete', 'It looks like you are mentioned by name in the body of this email');
                         }
                         else {
-                            app.showNotification('Scan Complete', 'It looks like you are not mentioned by name in the body of this email');
+                            showNotification('Scan Complete', 'It looks like you are not mentioned by name in the body of this email');
                         }
 
                     });
                 }
                 else { // Method not available
-                    app.showNotification('Warning', 'The body.getAsync() method is not available in this version of Outlook. Body parsing was skipped');
+                    showNotification('Warning', 'The body.getAsync() method is not available in this version of Outlook. Body parsing was skipped');
                 }
             }
         }
+    }
+
+
+    // Helper function for displaying notifications
+    function showNotification(header, content) {
+        $("#notificationHeader").text(header);
+        $("#notificationBody").text(content);
+        messageBanner.showBanner();
+        messageBanner.toggleExpansion();
     }
 })();
 

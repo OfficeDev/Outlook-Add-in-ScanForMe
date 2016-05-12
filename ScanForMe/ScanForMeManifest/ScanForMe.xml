@@ -19,7 +19,7 @@
     <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="~remoteAppUrl/AppRead/Home/Home.html"/>
-        <RequestedHeight>250</RequestedHeight>
+        <RequestedHeight>300</RequestedHeight>
       </DesktopSettings>
     </Form>
   </FormSettings>
