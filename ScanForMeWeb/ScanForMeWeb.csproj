@@ -76,6 +76,11 @@
     <Content Include="Content\fabric.rtl.css" />
     <Content Include="Content\fabric.rtl.min.css" />
     <Content Include="Content\OfficeThemes.css" />
+    <Content Include="Functions\FunctionFile.html" />
+    <Content Include="Functions\FunctionFile.js" />
+    <Content Include="Images\Icon16.png" />
+    <Content Include="Images\Icon32.png" />
+    <Content Include="Images\Icon80.png" />
     <Content Include="packages.config" />
     <Content Include="Content\sass\_Office.Color.Variables.scss" />
     <Content Include="Content\sass\_Fabric.ZIndex.Variables.scss" />
@@ -118,9 +123,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppRead\Home\Home.css" />
-    <Content Include="AppRead\Home\Home.html" />
-    <Content Include="AppRead\Home\Home.js" />
+    <Content Include="ItemRead.css" />
+    <Content Include="ItemRead.html" />
+    <Content Include="ItemRead.js" />
     <Content Include="Content\Office.css" />
     <Content Include="Images\Close.png" />
     <None Include="Scripts\_references.js" />
@@ -369,9 +374,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\FabricUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

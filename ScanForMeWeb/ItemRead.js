@@ -1,21 +1,16 @@
-﻿
-/*
+﻿/*
 * Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file.
 */
 
-/// <reference path="../../Scripts/FabricUI/MessageBanner.js" />
+/// <reference path="/Scripts/jquery.fabric.js" />
 
 (function () {
     'use strict';
 
-    var messageBanner;
-
     // The Office initialize function must be run each time a new page is loaded
     Office.initialize = function (reason) {
         $(document).ready(function () {
-            var element = document.querySelector('.ms-MessageBanner');
-            messageBanner = new fabric.MessageBanner(element);
-            //messageBanner.hideBanner();
+
             detectActionsForMe();
         });
     };
@@ -97,10 +92,13 @@
 
     // Helper function for displaying notifications
     function showNotification(header, content) {
+
         $("#notificationHeader").text(header);
         $("#notificationBody").text(content);
+
+        var element = document.querySelector('.ms-MessageBanner');
+        var messageBanner = new fabric.MessageBanner(element);
         messageBanner.showBanner();
-        messageBanner.toggleExpansion();
     }
 })();
 
