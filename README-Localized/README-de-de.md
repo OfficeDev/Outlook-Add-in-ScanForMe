@@ -17,7 +17,7 @@
 
 In diesem Beispiel erfahren Sie, wie Sie mithilfe der [JavaScript-API für Office](https://msdn.microsoft.com/de-de/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) ein Outlook-Add-In erstellen, das im E-Mail-Nachrichtentext nach Links sucht. Im folgenden finden einen Überblick über das Szenario.
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##Anforderungen

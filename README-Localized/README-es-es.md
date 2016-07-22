@@ -17,7 +17,7 @@
 
 En este ejemplo se muestra cómo usar la [API de JavaScript para Office](https://msdn.microsoft.com/es-es/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15) para crear un complemento de Outlook que analiza el cuerpo de un correo electrónico en busca de hipervínculos. La siguiente imagen corresponde al escenario en cuestión.
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##Requisitos previos

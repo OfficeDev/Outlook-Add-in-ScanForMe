@@ -17,7 +17,7 @@
 
 Neste exemplo mostraremos como usar a [API JavaScript para Office](https://msdn.microsoft.com/pt-br/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) para criar um suplemento do Outlook que analisa o corpo de um email procurando hiperlinks. Veja uma imagem do cenário em questão.
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##Pré-requisitos
