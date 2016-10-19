@@ -17,7 +17,7 @@
 
 このサンプルでは、[JavaScript API for Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) を使用して、ハイパーリンクを参照する電子メールの本文を解析する Outlook アドインの作成方法を示します。次に、質問のシナリオの画像を示します。
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>前提条件

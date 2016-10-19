@@ -17,7 +17,7 @@
 
 В этом примере показано, как с помощью [API JavaScript для Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) создать надстройку Outlook, анализирующую текст сообщения на предмет ссылок. На приведенном ниже изображении показан рассматриваемый сценарий.
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>Необходимые компоненты

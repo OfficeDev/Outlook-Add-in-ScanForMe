@@ -17,7 +17,7 @@
 
 本示例介绍如何使用 [适用于 Office 的 JavaScript API](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) 来创建可分析查找超链接的电子邮件正文的 Outlook 外接程序。以下是要讨论的方案的图片。
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>先决条件

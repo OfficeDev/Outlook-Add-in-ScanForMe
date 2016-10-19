@@ -17,7 +17,7 @@
 
 Dans cet exemple, nous allons vous montrer comment utiliser l’[interface API JavaScript pour Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) afin de créer un complément Outlook qui analyse le corps d’un message électronique pour rechercher des liens hypertextes. Voici une image du scénario en question.
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>Conditions préalables

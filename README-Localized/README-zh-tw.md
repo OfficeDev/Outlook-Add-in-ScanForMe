@@ -17,7 +17,7 @@
 
 在這個範例中，為您示範如何使用 [JavaScript API for Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) 以建立 Outlook 增益集，剖析尋找超連結的電子郵件的本文。下列是有問題的案例圖片。
 
- ![](../https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>必要條件
