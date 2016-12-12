@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -67,7 +67,54 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\fabric.components.css" />
+    <Content Include="Content\fabric.components.min.css" />
+    <Content Include="Content\fabric.components.rtl.css" />
+    <Content Include="Content\fabric.components.rtl.min.css" />
+    <Content Include="Content\fabric.css" />
+    <Content Include="Content\fabric.min.css" />
+    <Content Include="Content\fabric.rtl.css" />
+    <Content Include="Content\fabric.rtl.min.css" />
+    <Content Include="Content\OfficeThemes.css" />
+    <Content Include="Functions\FunctionFile.html" />
+    <Content Include="Functions\FunctionFile.js" />
+    <Content Include="Images\Icon16.png" />
+    <Content Include="Images\Icon32.png" />
+    <Content Include="Images\Icon80.png" />
     <Content Include="packages.config" />
+    <Content Include="Content\sass\_Office.Color.Variables.scss" />
+    <Content Include="Content\sass\_Fabric.ZIndex.Variables.scss" />
+    <Content Include="Content\sass\_Fabric.Utilities.scss" />
+    <Content Include="Content\sass\_Fabric.Typography.Variables.scss" />
+    <Content Include="Content\sass\_Fabric.Typography.scss" />
+    <Content Include="Content\sass\_Fabric.Typography.Language.Overrides.scss" />
+    <Content Include="Content\sass\_Fabric.Typography.Fonts.scss" />
+    <Content Include="Content\sass\_Fabric.Responsive.Variables.scss" />
+    <Content Include="Content\sass\_Fabric.Responsive.Utilities.Variables.scss" />
+    <Content Include="Content\sass\_Fabric.Mixins.scss" />
+    <Content Include="Content\sass\_Fabric.Mixins.RTL.scss" />
+    <Content Include="Content\sass\_Fabric.Icons.scss" />
+    <Content Include="Content\sass\_Fabric.Grid.scss" />
+    <Content Include="Content\sass\_Fabric.Common.scss" />
+    <Content Include="Content\sass\_Fabric.Color.Variables.scss" />
+    <Content Include="Content\sass\_Fabric.Color.Mixins.scss" />
+    <Content Include="Content\sass\_Fabric.Animations.scss" />
+    <Content Include="Content\sass\_Fabric.Animations.RTL.scss" />
+    <Content Include="Content\sass\Fabric.Utilities.Output.scss" />
+    <Content Include="Content\sass\Fabric.Typography.Output.scss" />
+    <Content Include="Content\sass\Fabric.Typography.Language.Overrides.Output.scss" />
+    <Content Include="Content\sass\Fabric.Typography.Fonts.Output.scss" />
+    <Content Include="Content\sass\Fabric.scss" />
+    <Content Include="Content\sass\Fabric.RTL.scss" />
+    <Content Include="Content\sass\Fabric.Responsive.Utilities.Output.scss" />
+    <Content Include="Content\sass\Fabric.Icons.RTL.Output.scss" />
+    <Content Include="Content\sass\Fabric.Icons.Output.scss" />
+    <Content Include="Content\sass\Fabric.Icons.Font.Output.scss" />
+    <Content Include="Content\sass\Fabric.Grid.Output.scss" />
+    <Content Include="Content\sass\Fabric.Components.scss" />
+    <Content Include="Content\sass\Fabric.Color.Mixins.Output.scss" />
+    <Content Include="Content\sass\Fabric.Animations.RTL.Output.scss" />
+    <Content Include="Content\sass\Fabric.Animations.Output.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -76,17 +123,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppRead\App.css" />
-    <Content Include="AppRead\App.js" />
-    <Content Include="AppRead\Home\Home.css" />
-    <Content Include="AppRead\Home\Home.html" />
-    <Content Include="AppRead\Home\Home.js" />
+    <Content Include="ItemRead.css" />
+    <Content Include="ItemRead.html" />
+    <Content Include="ItemRead.js" />
     <Content Include="Content\Office.css" />
     <Content Include="Images\Close.png" />
     <None Include="Scripts\_references.js" />
-    <None Include="Scripts\Office\1\outlook-win32.debug-vsdoc.js" />
-    <None Include="Scripts\Office\1\office-vsdoc.js" />
-    <Content Include="Content\OfficeThemes.css" />
+    <Content Include="Scripts\jquery.fabric.js" />
+    <Content Include="Scripts\jquery.fabric.min.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.debug.js" />
     <Content Include="Scripts\Office\1\access-web-16.00.js" />
     <Content Include="Scripts\Office\1\ar-sa\office_strings.debug.js" />
@@ -97,10 +141,7 @@
     <Content Include="Scripts\Office\1\bg-bg\office_strings.js" />
     <Content Include="Scripts\Office\1\bg-bg\outlook_strings.debug.js" />
     <Content Include="Scripts\Office\1\bg-bg\outlook_strings.js" />
-    <Content Include="Scripts\Office\1\ca-es\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\ca-es\office_strings.js" />
-    <Content Include="Scripts\Office\1\ca-es\outlook_strings.debug.js" />
-    <Content Include="Scripts\Office\1\ca-es\outlook_strings.js" />
     <Content Include="Scripts\Office\1\cs-cz\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\cs-cz\office_strings.js" />
     <Content Include="Scripts\Office\1\cs-cz\outlook_strings.debug.js" />
@@ -129,10 +170,7 @@
     <Content Include="Scripts\Office\1\et-ee\office_strings.js" />
     <Content Include="Scripts\Office\1\et-ee\outlook_strings.debug.js" />
     <Content Include="Scripts\Office\1\et-ee\outlook_strings.js" />
-    <Content Include="Scripts\Office\1\eu-es\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\eu-es\office_strings.js" />
-    <Content Include="Scripts\Office\1\eu-es\outlook_strings.debug.js" />
-    <Content Include="Scripts\Office\1\eu-es\outlook_strings.js" />
     <Content Include="Scripts\Office\1\excel-15.01.debug.js" />
     <Content Include="Scripts\Office\1\excel-15.01.js" />
     <Content Include="Scripts\Office\1\excel-15.debug.js" />
@@ -157,10 +195,7 @@
     <Content Include="Scripts\Office\1\fr-fr\office_strings.js" />
     <Content Include="Scripts\Office\1\fr-fr\outlook_strings.debug.js" />
     <Content Include="Scripts\Office\1\fr-fr\outlook_strings.js" />
-    <Content Include="Scripts\Office\1\gl-es\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\gl-es\office_strings.js" />
-    <Content Include="Scripts\Office\1\gl-es\outlook_strings.debug.js" />
-    <Content Include="Scripts\Office\1\gl-es\outlook_strings.js" />
     <Content Include="Scripts\Office\1\he-il\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\he-il\office_strings.js" />
     <Content Include="Scripts\Office\1\he-il\outlook_strings.debug.js" />
@@ -219,6 +254,7 @@
     <Content Include="Scripts\Office\1\nl-nl\outlook_strings.js" />
     <Content Include="Scripts\Office\1\o15apptofilemappingtable.debug.js" />
     <Content Include="Scripts\Office\1\o15apptofilemappingtable.js" />
+    <None Include="Scripts\Office\1\office-vsdoc.js" />
     <Content Include="Scripts\Office\1\office.debug.js" />
     <Content Include="Scripts\Office\1\office.js" />
     <Content Include="Scripts\Office\1\outlook-15.01.debug.js" />
@@ -231,6 +267,7 @@
     <Content Include="Scripts\Office\1\outlook-web-16.00.js" />
     <Content Include="Scripts\Office\1\outlook-win32-16.00.debug.js" />
     <Content Include="Scripts\Office\1\outlook-win32-16.00.js" />
+    <None Include="Scripts\Office\1\outlook-win32.debug-vsdoc.js" />
     <Content Include="Scripts\Office\1\outlookwebapp-15.01.debug.js" />
     <Content Include="Scripts\Office\1\outlookwebapp-15.01.js" />
     <Content Include="Scripts\Office\1\outlookwebapp-15.debug.js" />
@@ -281,22 +318,13 @@
     <Content Include="Scripts\Office\1\sl-si\office_strings.js" />
     <Content Include="Scripts\Office\1\sl-si\outlook_strings.debug.js" />
     <Content Include="Scripts\Office\1\sl-si\outlook_strings.js" />
-    <Content Include="Scripts\Office\1\sr-cyrl-cs\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\sr-cyrl-cs\office_strings.js" />
-    <Content Include="Scripts\Office\1\sr-cyrl-cs\outlook_strings.debug.js" />
-    <Content Include="Scripts\Office\1\sr-cyrl-cs\outlook_strings.js" />
-    <Content Include="Scripts\Office\1\sr-cyrl-rs\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\sr-cyrl-rs\office_strings.js" />
-    <Content Include="Scripts\Office\1\sr-cyrl-rs\outlook_strings.debug.js" />
-    <Content Include="Scripts\Office\1\sr-cyrl-rs\outlook_strings.js" />
     <Content Include="Scripts\Office\1\sr-latn-cs\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\sr-latn-cs\office_strings.js" />
     <Content Include="Scripts\Office\1\sr-latn-cs\outlook_strings.debug.js" />
     <Content Include="Scripts\Office\1\sr-latn-cs\outlook_strings.js" />
-    <Content Include="Scripts\Office\1\sr-latn-rs\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\sr-latn-rs\office_strings.js" />
-    <Content Include="Scripts\Office\1\sr-latn-rs\outlook_strings.debug.js" />
-    <Content Include="Scripts\Office\1\sr-latn-rs\outlook_strings.js" />
     <Content Include="Scripts\Office\1\sv-se\office_strings.debug.js" />
     <Content Include="Scripts\Office\1\sv-se\office_strings.js" />
     <Content Include="Scripts\Office\1\sv-se\outlook_strings.debug.js" />
@@ -346,6 +374,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -375,8 +404,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\ScanForMe\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
