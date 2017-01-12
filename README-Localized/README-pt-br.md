@@ -1,4 +1,4 @@
-# <a name="outlook-add-in:-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line,-cc-line-or-body-of-an-email."></a>Suplemento do Outlook: Um suplemento de email para um cenário de leitura que verifica se o usuário está sendo mencionado na linha Para, na linha Cc ou no corpo de um email.
+# <a name="outlook-add-in-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line-cc-line-or-body-of-an-email"></a>Suplemento do Outlook: Um suplemento de email para um cenário de leitura que verifica se o usuário está sendo mencionado na linha Para, na linha Cc ou no corpo de um email.
 
 **Sumário**
 
@@ -17,16 +17,16 @@
 
 Neste exemplo mostraremos como usar a [API JavaScript para Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) para criar um suplemento do Outlook que analisa o corpo de um email procurando hiperlinks. Veja uma imagem do cenário em questão.
 
- ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](../readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>Pré-requisitos
 Esse exemplo requer o seguinte:  
 
-  - Visual Studio 2013 com Atualização 5 ou Visual Studio 2015.  
-  - Um computador executando o Exchange 2013 com pelo menos uma conta de email ou uma conta do Office 365. Caso não tenha uma, [participe do Programa para Desenvolvedores do Office 365 e obtenha uma assinatura gratuita de 1 ano do Office 365](https://aka.ms/devprogramsignup).
+  - Visual Studio 2015.  
+  - Um computador executando o Exchange 2013 com pelo menos uma conta de email ou uma conta do Office 365. Você pode se inscrever para [uma assinatura do Office 365 Developer](https://aka.ms/devprogramsignup) e, através da assinatura, obter uma conta do Office 365.
   - Internet Explorer 9 ou posterior, que deve estar instalado, mas não precisa ser o navegador padrão. Para oferecer suporte aos Suplementos do Office, o cliente do Office que atua como host usa os componentes do navegador que fazem parte do Internet Explorer 9 ou posterior.
-  - Um dos seguintes como o navegador padrão: Internet Explorer 9, Safari 5.0.6, Firefox 5, Chrome 13 ou uma versão mais recente de um desses navegadores.
+  - Um dos navegadores seguintes como o padrão: Edge, Internet Explorer 9, Safari 5.0.6, Firefox 5, Chrome 13 ou uma versão mais recente de um desses navegadores.
   - Familiaridade com programação em JavaScript e serviços Web.
 
 <a name="components"></a>
@@ -35,25 +35,22 @@ Esse exemplo requer o seguinte:
 Essa solução foi criada no [Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS). Ela é formada por dois projetos - ScanForMe e ScanForMeWeb. Veja uma lista dos principais arquivos dentro desses projetos. 
 #### <a name="scanforme-project"></a>Projeto ScanForMe
 
-* 
-  [
-  ```ScanForMe.xml```
-  ](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMe/ScanForMeManifest/ScanForMe.xml) o [ arquivo de manifesto](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp) do suplemento do Word.
+* [```ScanForMe.xml```](/ScanForMe/ScanForMeManifest/ScanForMe.xml) o [ arquivo de manifesto](https://dev.office.com/docs/add-ins/outlook/manifests/manifests) do suplemento do Outlook.
 
 #### <a name="scanformeweb-project"></a>Projeto ScanForMeWeb
 
-* [```Home.html```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.html) interface do usuário HTML para o suplemento do Word.
-* [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.js) o código JavaScript usado por Home.html para interagir com o Word usando o a API JavaScript para Office. 
+* [```ItemRead.html```](/ScanForMeWeb/ItemRead.html) a interface do usuário HTML para o suplemento do Outlook.
+* [```ItemRead.js```](/ScanForMeWeb/ItemRead.js) o código JavaScript usado por Home.html para interagir com o Word usando a API JavaScript para Office. 
 
 
 <a name="codedescription"></a>
 ##<a name="description-of-the-code"></a>Descrição do código
 
-A lógica principal deste exemplo está no arquivo [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.js) no projeto ScanForMeWeb. 
+A lógica principal deste exemplo está no arquivo [```ItemRead.js```](/ScanForMeWeb/ItemRead.js) no projeto ScanForMeWeb. 
 
-Depois que o suplemento for inicializado, as propriedades `item.to` e `item.cc` serão verificadas em busca do endereço de email do usuário. O endereço de email do usuário é recuperado na propriedade [```Office.context.mailbox.userProfile```](https://msdn.microsoft.com/library/office/fp160976.aspx). Se o usuário foi encontrado nas linhas Para ou Cc deste email, esse fato é registrado na interface do usuário do suplemento. 
+Depois que o suplemento for inicializado, as propriedades `item.to` e `item.cc` serão verificadas em busca do endereço de email do usuário. O endereço de email do usuário é recuperado na propriedade [```Office.context.mailbox.userProfile```](https://dev.office.com/reference/add-ins/outlook/Office.context.mailbox.userProfile). Se o usuário foi encontrado nas linhas Para ou Cc deste email, esse fato é registrado na interface do usuário do suplemento. 
 
-O método [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.aspx) do objeto Corpo é então usado para recuperar o corpo do email no formato Texto. Quando essa operação assíncrona for concluída, a função de retorno de chamada em linha é chamada. Esta função usa uma expressão regular para verificar o texto do corpo do email para verificar as ocorrências do nome do usuário. Se uma ou mais ocorrências forem encontradas, a interface do usuário do suplemento anota as ocorrências nas quais o usuário foi mencionado no corpo do email. 
+O método [```getAsync()```](http://dev.office.com/reference/add-ins/outlook/Body) do objeto Body é então usado para recuperar o corpo do email no formato Texto. Quando essa operação assíncrona for concluída, a função de retorno de chamada em linha é chamada. Esta função usa uma expressão regular para examinar o texto do corpo do email para verificar as ocorrências do nome do usuário. Se uma ou mais ocorrências forem encontradas, a interface do usuário do suplemento anota as ocorrências nas quais o usuário foi mencionado no corpo do email. 
 
 >Observação: Para obter um exemplo de uso do getAsync para recuperar o corpo de um email no formato HTML, confira o exemplo [Outlook-Add-in-LinkRevealer](https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer). 
 
@@ -64,17 +61,6 @@ O método [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.
 2. Pressione F5 para compilar e implantar o suplemento de exemplo 
 3. Quando o Outlook iniciar, escolha um email de sua caixa de entrada
 4. Inicie o suplemento selecionando-o na barra de aplicativo do suplemento
-
- - requer captura de tela
-
-
-5. [Descreve o que acontece a seguir]
-
-
-<a name="troubleshooting"></a>
-## <a name="troubleshooting"></a>Solução de problemas
-
-- Se o suplemento não for exibido no painel de tarefas, escolha **Inserir > Meus Suplementos > Digitalizar para Mim**.
 
 <a name="questions"></a>
 ## <a name="questions-and-comments"></a>Perguntas e comentários
@@ -94,12 +80,9 @@ Este projeto adotou o [Código de Conduta do Código Aberto da Microsoft](https:
 ## <a name="additional-resources"></a>Recursos adicionais ##
 
 - [Mais exemplos de suplemento](https://github.com/OfficeDev?utf8=%E2%9C%93&query=-Add-in)
-- 
-  [Suplementos do Office](http://msdn.microsoft.com/library/office/jj220060.aspx)
-- 
-  [Anatomia de um suplemento](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp)
-- 
-  [Criando um suplemento do Office com o Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS)
+- [Suplementos do Office](https://dev.office.com/reference/add-ins)
+- [Anatomia de um suplemento](https://dev.office.com/docs/add-ins/overview/office-add-ins#StartBuildingApps_AnatomyofApp)
+- [Criando um suplemento do Office com o Visual Studio](https://dev.office.com/docs/add-ins/get-started/create-and-debug-office-add-ins-in-visual-studio)
 
 
 ## <a name="copyright"></a>Direitos autorais

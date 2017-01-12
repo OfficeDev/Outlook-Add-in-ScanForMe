@@ -1,4 +1,4 @@
-# <a name="outlook-add-in:-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line,-cc-line-or-body-of-an-email."></a>Outlook アドイン:読み取りシナリオ用のメール アドイン。ユーザーが電子メールの宛先行、CC 行、または本文のいずれに記載されているかを確認します。
+# <a name="outlook-add-in-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line-cc-line-or-body-of-an-email"></a>Outlook アドイン:読み取りシナリオ用のメール アドイン。ユーザーが電子メールの宛先行、CC 行、または本文のいずれに記載されているかを確認します。
 
 **目次**
 
@@ -17,16 +17,16 @@
 
 このサンプルでは、[JavaScript API for Office](https://msdn.microsoft.com/library/b27e70c3-d87d-4d27-85e0-103996273298(v=office.15)) を使用して、ハイパーリンクを参照する電子メールの本文を解析する Outlook アドインの作成方法を示します。次に、質問のシナリオの画像を示します。
 
- ![](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/readme-images/screenshot1.PNG)
+ ![](../readme-images/screenshot1.PNG)
 
 <a name="prerequisites"></a>
 ##<a name="prerequisites"></a>前提条件
 このサンプルを実行するには次のものが必要です。  
 
-  - Visual Studio 2013 更新プログラム 5 または Visual Studio 2015。  
-  - 少なくとも 1 つの電子メール アカウントまたは Office 365 アカウントがある Exchange 2013 を実行するコンピューター。お持ちでない場合は、[Office 365 Developer プログラムに参加して、Office 365 の 1 年間無料のサブスクリプションを取得](https://aka.ms/devprogramsignup)します。
+  - Visual Studio 2015。  
+  - 少なくとも 1 つの電子メール アカウントまたは Office 365 アカウントがある Exchange 2013 を実行するコンピューター。[Office 365 Developer サブスクリプション](https://aka.ms/devprogramsignup)にサインアップし、そこから Office 365 アカウントを取得することができます。
   - Internet Explorer 9 以降。インストールが必要ですが、既定のブラウザーである必要はありません。Office アドインをサポートするために、ホストとして機能する Office クライアントは Internet Explorer 9 以上を構成しているブラウザー コンポーネントを使用します。
-  - 次のいずれかの既定のブラウザー: Internet Explorer 9、Safari 5.0.6、Firefox 5、Chrome 13、またはこれらのブラウザーのそれ以降のバージョン。
+  - 既定のブラウザーとして次のいずれか:Edge、Internet Explorer 9、Safari 5.0.6、Firefox 5、Chrome 13、これらのブラウザーのいずれかの最新バージョン。
   - JavaScript プログラミングと Web サービスに精通していること。
 
 <a name="components"></a>
@@ -35,27 +35,24 @@
 このソリューションは、[Visual Studio](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS) で作成されました。ScanForMe と ScanForMeWeb の 2 つのプロジェクトで構成されています。以下に、それらのプロジェクト内のキー ファイルの一覧を示します。 
 #### <a name="scanforme-project"></a>ScanForMe プロジェクト
 
-* 
-  [
-  ```ScanForMe.xml```
-  ](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMe/ScanForMeManifest/ScanForMe.xml) Word アドインの[マニフェスト ファイル](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp)。
+* [```ScanForMe.xml```](/ScanForMe/ScanForMeManifest/ScanForMe.xml) Outlook アドインの[マニフェスト ファイル](https://dev.office.com/docs/add-ins/outlook/manifests/manifests)。
 
 #### <a name="scanformeweb-project"></a>ScanForMeWeb プロジェクト
 
-* [```Home.html```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.html) Word アドインの HTML ユーザー インターフェイス。
-* [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.js) Office API の JavaScript を使用して Word と対話するために Home.html によって使用される JavaScript コード。 
+* [```ItemRead.html```](/ScanForMeWeb/ItemRead.html) Outlook アドインの HTML ユーザー インターフェイス。
+* [```ItemRead.js```](/ScanForMeWeb/ItemRead.js) Office API の JavaScript を使用して Word と対話するために Home.html によって使用される JavaScript コード。 
 
 
 <a name="codedescription"></a>
 ##<a name="description-of-the-code"></a>コードの説明
 
-このサンプルのコア ロジックは、ScanForMeWeb プロジェクトの [```Home.js```](https://github.com/OfficeDev/Outlook-Add-in-ScanForMe/blob/master/ScanForMeWeb/AppRead/Home/Home.js) ファイルです。 
+このサンプルのコア ロジックは、ScanForMeWeb プロジェクトの [```ItemRead.js```](/ScanForMeWeb/ItemRead.js) ファイルです。 
 
-アドインを初期化すると、ユーザーの電子メール アドレスが存在するかどうか、`item.to` と `item.cc` プロパティをスキャンします。ユーザーの電子メール アドレスは、[```Office.context.mailbox.userProfile```](https://msdn.microsoft.com/library/office/fp160976.aspx) プロパティから取得します。ユーザーがこの電子メールの宛先行または CC 行で検出された場合、それらはアドインの UI に登録されます。 
+アドインを初期化すると、ユーザーの電子メール アドレスが存在するかどうか、`item.to` と `item.cc` プロパティをスキャンします。ユーザーの電子メール アドレスは、[```Office.context.mailbox.userProfile```](https://dev.office.com/reference/add-ins/outlook/Office.context.mailbox.userProfile) プロパティから取得します。ユーザーがこの電子メールの宛先行または CC 行で検出された場合、それらはアドインの UI に登録されます。 
 
-body オブジェクトの [```getAsync()```](https://msdn.microsoft.com/library/office/mt269089.aspx) メソッドは、テキスト形式の電子メールの本文を取得するために使用されます。この非同期操作が完了すると、インライン コールバック関数が呼び出されます。この関数は正規表現を使用して、ユーザーの名が使用されていないか電子メール本文のテキストをスキャンします。1 回以上使用されていることが検出された場合、アドインの UI に、ユーザーの名前が電子メールの本文に記載されていることをが示されます。 
+Body オブジェクトの [```getAsync()```](http://dev.office.com/reference/add-ins/outlook/Body) メソッドは、テキスト形式の電子メールの本文を取得するために使用されます。この非同期操作が完了すると、インライン コールバック関数が呼び出されます。この関数は正規表現を使用して、ユーザーの名が使用されていないか電子メール本文のテキストをスキャンします。1 回以上使用されていることが検出された場合、アドインの UI に、ユーザーの名前が電子メールの本文に記載されていることが示されます。 
 
->注意:HTML 形式の電子メールの本文を取得する getAsync を使用する例については、[Outlook-Add-in-LinkRevealer](https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer) のサンプルを参照してください。 
+>注:HTML 形式の電子メールの本文を取得する getAsync を使用する例については、[Outlook-Add-in-LinkRevealer](https://github.com/OfficeDev/Outlook-Add-in-LinkRevealer) のサンプルを参照してください。 
 
 
 <a name="build"></a>
@@ -64,17 +61,6 @@ body オブジェクトの [```getAsync()```](https://msdn.microsoft.com/library
 2. F5 キーを押して、サンプル アドインをビルドおよび展開します。 
 3. Outlook が起動したら、受信トレイから電子メールを選択します。
 4. アドイン アプリ バーからアドインを選択して、起動します。
-
- - スクリーンショットが必要
-
-
-5. [次に起こることの説明]
-
-
-<a name="troubleshooting"></a>
-## <a name="troubleshooting"></a>トラブルシューティング
-
-- アドインが作業ウィンドウに表示されない場合、**[挿入]、[個人用アドイン]、[自分の名前をスキャン]** の順に選択します。
 
 <a name="questions"></a>
 ## <a name="questions-and-comments"></a>質問とコメント
@@ -94,12 +80,9 @@ body オブジェクトの [```getAsync()```](https://msdn.microsoft.com/library
 ## <a name="additional-resources"></a>その他のリソース ##
 
 - [その他のアドインのサンプル](https://github.com/OfficeDev?utf8=%E2%9C%93&query=-Add-in)
-- 
-  [Office アドイン](http://msdn.microsoft.com/library/office/jj220060.aspx)
-- 
-  [アドインの構造](https://msdn.microsoft.com/library/office/jj220082.aspx#StartBuildingApps_AnatomyofApp)
-- 
-  [Visual Studio で Office アドインを作成する](https://msdn.microsoft.com/library/office/fp179827.aspx#Tools_CreatingWithVS)
+- [Office アドイン](https://dev.office.com/reference/add-ins)
+- [アドインの構造](https://dev.office.com/docs/add-ins/overview/office-add-ins#StartBuildingApps_AnatomyofApp)
+- [Visual Studio で Office アドインを作成する](https://dev.office.com/docs/add-ins/get-started/create-and-debug-office-add-ins-in-visual-studio)
 
 
 ## <a name="copyright"></a>著作権
