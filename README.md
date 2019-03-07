@@ -1,3 +1,16 @@
+---
+topic: sample
+products:
+- Outlook
+- Office 365
+languages:
+- JavaScript
+extensions:
+  contentType: samples
+  technologies:
+  - Add-ins
+  createdDate: 8/29/2015 7:47:24 PM
+---
 # Outlook add-in: A mail add-in for a read scenario that checks whether the user is mentioned on the To line, cc line or body of an email.
 
 **Table of contents**
