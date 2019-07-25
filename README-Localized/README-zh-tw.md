@@ -1,3 +1,16 @@
+---
+page_type: sample
+products:
+- office-outlook
+- office-365
+languages:
+- javascript
+extensions:
+  contentType: samples
+  technologies:
+  - Add-ins
+  createdDate: 8/29/2015 7:47:24 PM
+---
 # <a name="outlook-add-in-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line-cc-line-or-body-of-an-email"></a>Outlook 增益集：讀取案例的郵件增益集，它會檢查使用者是否在 [收件人] 行、[副本] 行或電子郵件的本文提及。
 
 **目錄**

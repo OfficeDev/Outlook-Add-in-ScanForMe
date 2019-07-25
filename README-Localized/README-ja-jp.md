@@ -1,3 +1,16 @@
+---
+page_type: sample
+products:
+- office-outlook
+- office-365
+languages:
+- javascript
+extensions:
+  contentType: samples
+  technologies:
+  - Add-ins
+  createdDate: 8/29/2015 7:47:24 PM
+---
 # <a name="outlook-add-in-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line-cc-line-or-body-of-an-email"></a>Outlook アドイン:読み取りシナリオ用のメール アドイン。ユーザーが電子メールの宛先行、CC 行、または本文のいずれに記載されているかを確認します。
 
 **目次**

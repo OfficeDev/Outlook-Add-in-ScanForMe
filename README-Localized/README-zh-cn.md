@@ -1,3 +1,16 @@
+---
+page_type: sample
+products:
+- office-outlook
+- office-365
+languages:
+- javascript
+extensions:
+  contentType: samples
+  technologies:
+  - Add-ins
+  createdDate: 8/29/2015 7:47:24 PM
+---
 # <a name="outlook-add-in-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line-cc-line-or-body-of-an-email"></a>Outlook 外接程序：读取方案的邮件外接程序检查用户是否在“收件人”行、“抄送”行或电子邮件的正文中被提及。
 
 **目录**

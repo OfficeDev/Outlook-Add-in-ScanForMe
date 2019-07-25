@@ -1,3 +1,16 @@
+---
+page_type: sample
+products:
+- office-outlook
+- office-365
+languages:
+- javascript
+extensions:
+  contentType: samples
+  technologies:
+  - Add-ins
+  createdDate: 8/29/2015 7:47:24 PM
+---
 # <a name="outlook-add-in-a-mail-add-in-for-a-read-scenario-that-checks-whether-the-user-is-mentioned-on-the-to-line-cc-line-or-body-of-an-email"></a>Complément Outlook : complément de messagerie pour un scénario de lecture qui vérifie si l’utilisateur est mentionné sur la ligne À, sur la ligne Cc ou dans le corps d’un message électronique.
 
 **Table des matières**
