@@ -1,16 +1,20 @@
 ---
 page_type: sample
 products:
+- office
 - office-outlook
 - office-365
 languages:
 - javascript
+description: "How to use the JavaScript API for Office to create an Outlook add-in that parses the body of an email looking for hyperlinks."
+urlFragment: outlook-scan-sample
 extensions:
   contentType: samples
   technologies:
   - Add-ins
-  createdDate: 8/29/2015 7:47:24 PM
+  createdDate: "8/29/2015 7:47:24 PM"
 ---
+
 # Outlook add-in: A mail add-in for a read scenario that checks whether the user is mentioned on the To line, cc line or body of an email.
 
 **Table of contents**
